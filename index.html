@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Expense Tracker</h1>
+
+  <!-- Add Expense Section -->
+  <div>
+    <input type="text" id="expenseDescription" placeholder="Expense Description" />
+    <input type="number" id="expenseAmount" placeholder="Amount" />
+    <input type="number" id="units" placeholder="Units" />
+    <input type="text" id="unitName" placeholder="Unit Name" />
+    <input type="number" id="pricePerUnit" placeholder="Price per Unit" />
+    <select id="categorySelect">
+      <option value="Food">Food</option>
+      <option value="Bills">Bills</option>
+      <option value="Health">Health</option>
+    </select>
+    <input type="text" id="expenseComment" placeholder="Add a Comment" />
+    <button id="addExpenseButton">Add Expense</button>
+  </div>
+
+
+  <h2>Expenses</h2>
+  <table id="expenseTable">
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th id="sortAmount" data-column="amount">Amount</th>
+        <th id="category">
+          <span id="filterCategory" data-column="category">Category</span>
+        </th>
+        <th>Units</th>
+        <th>Unit Name</th>
+        <th>Price per Unit</th> <!-- Added this -->
+        <th>Comment</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+    <tfoot>
+      <tr>
+        <td><strong>Total</strong></td>
+        <td id="totalAmount">0</td>
+        <td colspan="6"></td>
+      </tr>
+    </tfoot>
+  </table>
+  
+  
+
+
+  <h2>Categories Wise Expenses</h2>
+  <table id="categoryWiseTable">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Total Expenses</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <h2>Manage Categories</h2>
+  <input type="text" id="newCategoryInput" placeholder="New Category Name" />
+  <button id="addCategoryButton">Add Category</button>
+
+  <select id="deleteCategorySelect">
+    <option value="">Select Category to Delete</option>
+  </select>
+  <button id="deleteCategoryButton">Delete Category</button>
+
+  <h2>Export & Import</h2>
+  <button id="exportDataButton">Export Data as JSON</button>
+  <button id="exportCsvButton">Export Data as CSV</button>
+
+    <button  onclick="document.getElementById('importDataInput').click()">Import Data</button>
+    <input type="file" id="importDataInput" accept=".json, .csv" style="display:none"/>
+
+
+
+  <script src="app.js"></script>
+</body>
+</html>
